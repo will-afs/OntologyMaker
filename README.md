@@ -4,6 +4,8 @@ Build an ontology from inferences made onto a set of rules, entities and relatio
 
 This is a sub-project of the [AdvancedAcademicProject](https://github.com/will-afs/AdvancedAcademicProject/)
 
+<img src="https://github.com/will-afs/AdvancedAcademicProject/blob/main/doc/Step%203.JPG" width="700">
+
 ⚙️ Configuration
 -----------------
 The project configuration holds in the project_config.toml file.

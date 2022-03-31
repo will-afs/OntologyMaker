@@ -25,6 +25,10 @@ Then build the Docker image :
 You can now run the Docker image as a container :
 
     docker run ontologymaker
+    
+(In a different terminal) launch PDFExtractor:
+
+    celery -A src.pdfextractor.core.pdf_extractor worker --loglevel=INFO
 
 🧪 Running tests
 -----------------

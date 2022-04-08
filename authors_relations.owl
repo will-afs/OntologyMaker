@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+         xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+         xmlns:owl="http://www.w3.org/2002/07/owl#"
+         xml:base="http://authors_relations.org/onto.owl"
+         xmlns="http://authors_relations.org/onto.owl#">
+
+<owl:Ontology rdf:about="http://authors_relations.org/onto.owl"/>
+
+<owl:ObjectProperty rdf:about="#is_author_of">
+  <rdfs:domain rdf:resource="#Author"/>
+  <rdfs:range rdf:resource="#Article"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#is_cited_by">
+  <rdfs:domain rdf:resource="#Author"/>
+  <rdfs:range rdf:resource="#Author"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#is_cited_in">
+  <rdfs:domain rdf:resource="#Author"/>
+  <rdfs:range rdf:resource="#Article"/>
+</owl:ObjectProperty>
+
+<owl:Class rdf:about="#Author">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Article">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  <rdfs:subClassOf>
+    <owl:Class>
+      <owl:complementOf rdf:resource="#Author"/>
+    </owl:Class>
+  </rdfs:subClassOf>
+</owl:Class>
+
+<owl:Class rdf:about="#CitedAuthor">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#Author"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#is_cited_by"/>
+          <owl:someValuesFrom rdf:resource="#Author"/>
+        </owl:Restriction>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#is_cited_in"/>
+          <owl:someValuesFrom rdf:resource="#Article"/>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+
+</rdf:RDF>

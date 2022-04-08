@@ -6,17 +6,10 @@ This is a sub-project of the [AdvancedAcademicProject](https://github.com/will-a
 
 <img src="https://github.com/will-afs/AdvancedAcademicProject/blob/main/doc/Steps/Step%203%20-%20Building%20the%20ontology.JPG" width="700">
 
-⚙️ Configuration
------------------
-The project configuration holds in the [project_config.toml file](https://github.com/will-afs/OntologyMaker/settings/project_config.toml)
+*Note: For now, the input data are retrieved from a macrostructure.json file instead of a Redis task queue.*
 
-🐇 Quickly run the service as a container
-------------------------------------------
-
-    sudo docker run -p 9000:8080 williamafonso/ontologymaker:latest
-
-🧪 Developing and running tests
---------------------------------
+🐇 Quickly run the notebook
+----------------------------
 In a terminal, run the following command:
 
     git clone https://github.com/will-afs/OntologyMaker.git
@@ -41,28 +34,4 @@ Install the dependencies:
     
     pip install -r requirements.txt
 
-Run the main python file:
-
-    celery -A src.core.ontologymaker worker --loglevel=INFO --concurrency=1
-
-The tests are placed in the tests folder. They can be ran with pytests, as follows:
-
-    python -m pytest tests
-
- 🐋 Containerizing the application 
-----------------------------------
-To build a Docker image :
-
-    sudo docker build --tag ontologymaker .
-    
-Or if you want to be able to push it to your DockerHub:
-
-    sudo docker build --tag <your_docker_username>/ontologymaker .
-
-Pushing the Docker image to your registry :
-
-    sudo docker push <your_docker_user_name>/ontologymaker
-
-You can now run the Docker image as a container :
-
-    sudo docker run -d -p 80:80 ontologymaker
+Run the main notebook (ontology_maker.ipynb)

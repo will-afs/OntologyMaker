@@ -6,10 +6,6 @@ This is a sub-project of the [AdvancedAcademicProject](https://github.com/will-a
 
 <img src="https://github.com/will-afs/AdvancedAcademicProject/blob/main/doc/Steps/Step%203%20-%20Building%20the%20ontology.JPG" width="700">
 
-⚙️ Configuration
------------------
-The project configuration holds in the [project_config.toml file](https://github.com/will-afs/OntologyMaker/settings/project_config.toml)
-
 🐇 Quickly run the notebook
 ----------------------------
 In a terminal, run the following command:
